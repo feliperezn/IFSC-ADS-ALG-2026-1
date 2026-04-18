@@ -17,4 +17,6 @@ void main() {
     
     IO.println("Seu nome: " + nome);
     IO.println("Seu IMC: " + imc);
+
+    sc.close();
 }

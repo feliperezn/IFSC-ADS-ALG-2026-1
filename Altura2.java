@@ -19,4 +19,6 @@ void main() {
 
     // IO.println(pes);
     // IO.println(polegadas);
+    
+    sc.close();
 }

@@ -16,4 +16,5 @@ void main() {
     IO.println("Área: " + area + " m³");
     IO.println("Volume: " + volume + " m³");
 
+    sc.close();
 }
