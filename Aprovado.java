@@ -5,6 +5,7 @@ void main() {
 
     double p1,r1,p2,r2,p3,r3, freq, media;
     boolean aprovado;
+    int mediaArredondada;
 
     IO.print("Entre com P1 e R1: ");
     p1 = sc.nextDouble();
@@ -26,11 +27,12 @@ void main() {
     p3 = Math.max(p3, r3);
 
     media = (p1+p2+p3)/3;
+    mediaArredondada = (int)Math.round(media);
 
-    aprovado = media>=6 && freq>=75;
+    aprovado = mediaArredondada>=6 && freq>=75;
 
-    IO.println("Média: " + media);
-    IO.println("Média arredondada: " + Math.round(media));
+    IO.println("Média: " + String.format("%.1f", media));
+    IO.println("Média arredondada: " + mediaArredondada);
     IO.println("Aprovado: " + aprovado);
     
     sc.close();
