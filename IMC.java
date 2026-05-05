@@ -5,8 +5,9 @@ void main() {
 
     double peso, altura, imc;
 
-    IO.print("Digite seu peso e altura: ");
+    IO.print("Digite seu peso (kg): ");
     peso = sc.nextDouble();
+    IO.print("Digite sua altura (m): ");
     altura = sc.nextDouble();
 
     imc = peso / (altura * altura);
