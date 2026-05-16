@@ -3,7 +3,7 @@ import java.util.Scanner;
 void main() {
     java.util.Scanner sc = new Scanner(System.in);
 
-    float p1, p2, p3, r1, r2, r3;
+    float p1, p2, p3, r1, r2, r3, media;
     int freq;
 
     IO.print("Entre com P1 e R1: ");
@@ -21,6 +21,12 @@ void main() {
     IO.print("Entre com a frequência: ");
     freq = sc.nextInt();
 
+    p1 = maximo(p1, r1);
+    p2 = maximo(p1, r1);
+    p3 = maximo(p1, r1);
+
+    media = calculaMedia(p1, p2, p3);
+
     sc.close();
 }
 
@@ -29,7 +35,10 @@ float maximo(float x, float y) {
     return z;
 }
 
-float media(float x, float y, float z) {
-    float media = 
-    return media;
+float calculaMedia(float x, float y, float z) {
+    return (x + y + z) / 3;
+}
+
+int arredonda(float x) {
+    return (int) x;
 }
