@@ -3,11 +3,13 @@ import java.util.Scanner;
 void main() {
     java.util.Scanner sc = new Scanner(System.in);
 
-    double n1 = 24.3;
-    double n2 = 10.4;
-    double n3 = 32.6;
-    double n4 = 32.6;
-    double n5 = 12.4;
+    IO.print("Entre com cinco números: ");
+
+    double n1 = sc.nextDouble();
+    double n2 = sc.nextDouble();
+    double n3 = sc.nextDouble();
+    double n4 = sc.nextDouble();
+    double n5 = sc.nextDouble();
 
     IO.println(String.format("%.1f", obtemMediaTruncada(n1, n2, n3, n4, n5)));
 
