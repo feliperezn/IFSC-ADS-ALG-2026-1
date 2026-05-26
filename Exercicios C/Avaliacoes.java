@@ -3,42 +3,44 @@ import java.util.Scanner;
 void main() {
     java.util.Scanner sc = new Scanner(System.in);
 
-    float p1, p2, p3, r1, r2, r3, media;
-    int freq;
-
     IO.print("Entre com P1 e R1: ");
-    p1 = sc.nextFloat();
-    r1 = sc.nextFloat();
+    double p1 = arredonda(sc.nextDouble());
+    double r1 = arredonda(sc.nextDouble());
 
     IO.print("Entre com P2 e R2: ");
-    p2 = sc.nextFloat();
-    r2 = sc.nextFloat();
+    double p2 = arredonda(sc.nextDouble());
+    double r2 = arredonda(sc.nextDouble());
 
     IO.print("Entre com P3 e R3: ");
-    p3 = sc.nextFloat();
-    r3 = sc.nextFloat();
+    double p3 = arredonda(sc.nextDouble());
+    double r3 = arredonda(sc.nextDouble());
 
-    IO.print("Entre com a frequência: ");
-    freq = sc.nextInt();
-
-    p1 = maximo(p1, r1);
-    p2 = maximo(p1, r1);
-    p3 = maximo(p1, r1);
-
-    media = calculaMedia(p1, p2, p3);
-
+    IO.print("Entre com a frequência (%): ");
+    double freq = sc.nextDouble();
     sc.close();
+
+    double media = media(maximo(p1, r1), maximo(p2, r2), maximo(p3, r3));
+
+    if (media >= 6 && freq >= 75) {
+        IO.println("Resultado: " + arredonda(media));
+        IO.println("Situação: aprovado");
+    } else {
+        IO.println("Resultado: 0");
+        IO.println("Situaçao: reprovado");
+    }
 }
 
-float maximo(float x, float y) {
-    float z = (x < y) ? x : y;
-    return z;
+double maximo(double n1, double n2) {
+    return n1 > n2 ? n1 : n2;
 }
 
-float calculaMedia(float x, float y, float z) {
-    return (x + y + z) / 3;
+double media(double n1, double n2, double n3) {
+    return arredonda((n1 + n2 + n3) / 3);
 }
 
-int arredonda(float x) {
-    return (int) x;
+int arredonda(double n1) {
+    int n2 = (int) n1;
+    double n3 = n1 - n2;
+
+    return n3 >= 0.5 ? n2 + 1 : n2;
 }
