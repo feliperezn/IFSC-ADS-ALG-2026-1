@@ -1,20 +1,17 @@
 void main() {
+  String buffer = IO.readln("Entre com um número inteiro não negativo: ");
+  int n = Integer.parseInt(buffer);
 
-  int n = 123;
-
-  IO.println("div:" + n / 10);
-  IO.println("mod:" + n % 10); // ultimo
-  IO.println("Soma:" + somaDigitos(n)); // ultimo
-
+  IO.println("Soma dos dígitos: " + somaDigitos(n));
 }
 
 int somaDigitos(int n) {
   int soma = 0;
 
-  while (n / 10 != 0) {
-    int digitoFinal = n % 10;
+  while (n > 0) {
+    int digito = n % 10;
+    soma += digito;
     n /= 10;
-    soma += digitoFinal;
   }
 
   return soma;
