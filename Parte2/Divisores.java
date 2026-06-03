@@ -4,7 +4,7 @@ void main() {
 
     int divCount = 0;
 
-    IO.print("[1");
+    IO.print("Divisores: [1");
 
     for (int i = 1; num >= i; i++) {
         if (num % i == 0 && i > 1) {
