@@ -1,22 +1,21 @@
 void main() {
     String buffer = IO.readln("Entre com um inteiro positivo: ");
-    int n = Integer.parseInt(buffer);
+    int num = Integer.parseInt(buffer);
+
+    int divCount = 0;
 
     IO.print("[1");
 
-    int p = 0;
-
-    for (int i = 2; i < n; i++) {
-        if (n % i == 0) {
-            IO.print(+i);
-            p++;
+    for (int i = 1; num >= i; i++) {
+        if (num % i == 0 && i > 1) {
+            IO.print("," + i);
+            divCount++;
         }
-
     }
 
-    IO.print(", " + n + "]");
+    IO.print("]");
     IO.println();
-    IO.println(p == 0 ? "É primo" : "Não é primo");
+    IO.println(divCount == 0 ? "É primo" : "Não é primo");
 }
 
 // Entre com um inteiro positivo: 4
