@@ -3,16 +3,16 @@ void main() {
   int n = Integer.parseInt(buffer);
 
   imprimePascal(n);
-
 }
 
 int potenciaFatorial(int base, int expoente) {
   int potFat = 1;
 
-  for (int i = 1; i < expoente; i++) {
-    potFat = potFat * (base - i);
+  while (expoente > 0) {
+    potFat *= base;
+    expoente -= 1;
+    base -= 1;
   }
-  potFat = potFat * base;
 
   return potFat;
   // Retorna a potência fatorial referente a uma dada base e a um dado expoente
@@ -25,7 +25,10 @@ int coeficienteBinomial(int n, int k) {
 
 void imprimePascal(int nMax) {
   // Imprime o triângulo de Pascal até a linha nMax
-  IO.println(coeficienteBinomial(1, 1));
-  IO.println(coeficienteBinomial(1, 1) + " " + coeficienteBinomial(1, 1));
-  IO.println(coeficienteBinomial(2, 1) + " " + coeficienteBinomial(2, 1) + " " + coeficienteBinomial(2, 2));
+  for (int n = 0; n <= nMax; n++) {
+    for (int k = 0; k <= n; k++) { // enquanto a coluna for menor igual a linha, imprima coluna
+      IO.print(coeficienteBinomial(n, k) + " ");
+    }
+    IO.println();
+  }
 }
