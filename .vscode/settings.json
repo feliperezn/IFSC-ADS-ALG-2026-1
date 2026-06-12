@@ -2,5 +2,9 @@
     "editor.inlayHints.enabled": "off",
     "[java]":{
         "editor.formatOnSave": true
-    }
+    },
+    "java.debug.settings.stepping.skipClasses": [
+    "$JDK",
+    "$Libraries"
+    ]
 }
