@@ -1,39 +1,32 @@
 void main() {
-    // String buffer;
-    // String[] partes;
-
-    // buffer = IO.readln("Entre com o horário de início (HH:MM): ");
-    // partes = buffer.split(":");
-
-    // int horaInicio = Integer.parseInt(partes[0]);
-    // int minInicio = Integer.parseInt(partes[1]);
-
-    // buffer = IO.readln("Entre com o horário de início (HH:MM): ");
-    // partes = buffer.split(":");
-
-    // int horaFim = Integer.parseInt(partes[0]);
-    // int minFim = Integer.parseInt(partes[1]);
-
-    IO.println(minutosParaHorarios(580));
-    IO.println(minutosParaHorarios(690));
-    IO.println(duracaoDoEvento("09:40", "11:30"));
-
+    String horarioInicio = IO.readln("Entre com o horário de início (HH:MM): ");
+    String horarioTermino = IO.readln("Entre com o horário de término (HH:MM): ");
+    String duracao = duracaoEvento(horarioInicio, horarioTermino);
+    IO.println("Duração do evento: " + duracao);
 }
 
 int horarioParaMinutos(String horario) {
     String[] partes = horario.split(":");
     int hh = Integer.parseInt(partes[0]);
     int mm = Integer.parseInt(partes[1]);
-
-    return (hh * 60) + mm;
+    int minutos = hh * 60 + mm;
+    return minutos;
 }
 
-String minutosParaHorarios(int x) {
-    return String.format("%02d:%02d", x / 60, x % 60);
+String minutosParaHorario(int minutos) {
+    int hh = minutos / 60;
+    int mm = minutos % 60;
+    String horario = String.format("%02d:%02d", hh, mm);
+    return horario;
 }
 
-String duracaoDoEvento(String horarioInicio, String horarioTermino) {
-    int duracaoMin = horarioParaMinutos(horarioTermino) - horarioParaMinutos(horarioInicio);
-    String duracao = minutosParaHorarios(duracaoMin);
+String duracaoEvento(String horarioInicio, String horarioTermino) {
+    int minutosInicio = horarioParaMinutos(horarioInicio);
+    int minutosTermino = horarioParaMinutos(horarioTermino);
+    int delta = minutosTermino - minutosInicio;
+    if (delta <= 0) {
+        delta += 24 * 60; // Quantidade de minutos em um dia
+    }
+    String duracao = minutosParaHorario(delta);
     return duracao;
 }
